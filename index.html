@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Meistro's Electronics Inventory</title>
+<style>
+:root{--bg:#0e1116;--panel:#161b22;--line:#26303d;--txt:#d7dee8;--dim:#8b98a9;--ok:#3fb950;--warn:#d29922;--bad:#f85149;--acc:#58a6ff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--txt);font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+header{padding:2.2rem 1.2rem 1.6rem;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#141a22,#0e1116)}
+h1{margin:0 0 .3rem;font-size:1.65rem;letter-spacing:-.02em}
+h1 span{color:var(--acc)}
+.sub{color:var(--dim);font-size:.9rem;max-width:70ch}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.2rem}
+.stats{display:flex;gap:1.6rem;flex-wrap:wrap;margin:1.4rem 0 .2rem}
+.stat b{display:block;font-size:1.5rem;line-height:1.1}
+.stat span{color:var(--dim);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em}
+.controls{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.4rem 0;align-items:center}
+input,select,button{background:var(--panel);color:var(--txt);border:1px solid var(--line);border-radius:7px;padding:.5rem .7rem;font:inherit}
+input{flex:1;min-width:180px}
+button{cursor:pointer}
+button.active{border-color:var(--acc);color:var(--acc)}
+.grid{display:grid;gap:1rem;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));padding-bottom:3rem}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:1rem 1.05rem}
+.card h2{margin:0;font-size:1rem;display:flex;justify-content:space-between;gap:.6rem;align-items:baseline}
+.id{color:var(--dim);font:12px ui-monospace,monospace}
+.mark{font:12.5px/1.6 ui-monospace,SFMono-Regular,monospace;background:#0b0f14;border:1px solid var(--line);border-radius:6px;padding:.45rem .55rem;margin:.6rem 0;white-space:pre-wrap;word-break:break-word}
+.row{font-size:.86rem;margin:.3rem 0}
+.row b{color:var(--dim);font-weight:600}
+.badge{font-size:.7rem;padding:.15rem .45rem;border-radius:999px;border:1px solid;white-space:nowrap}
+.b-ok{color:var(--ok);border-color:var(--ok)}
+.b-warn{color:var(--warn);border-color:var(--warn)}
+.b-bad{color:var(--bad);border-color:var(--bad)}
+.b-dim{color:var(--dim);border-color:var(--line)}
+.qs{margin:.6rem 0 0;padding-left:1rem;font-size:.83rem;color:var(--warn)}
+.qs li{margin:.2rem 0}
+footer{border-top:1px solid var(--line);padding:1.2rem;color:var(--dim);font-size:.8rem;text-align:center}
+.hidden{display:none}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<h1>Meistro's <span>Electronics Inventory</span></h1>
+<p class="sub">Bench catalogue of salvaged parts identified by Ohm. Confirmed means markings were read and the datasheet family checked. TBD means we know roughly what it is and nothing more. Every open question is listed on the card.</p>
+<div class="stats">
+  <div class="stat"><b id="s-total">-</b><span>Items</span></div>
+  <div class="stat"><b id="s-ok">-</b><span>Confirmed</span></div>
+  <div class="stat"><b id="s-open">-</b><span>Needs verification</span></div>
+  <div class="stat"><b id="s-qs">-</b><span>Open questions</span></div>
+</div>
+</div></header>
+<div class="wrap">
+<div class="controls">
+  <input id="q" placeholder="Filter by name, marking, or part number...">
+  <select id="f">
+    <option value="all">All items</option>
+    <option value="confirmed">Confirmed only</option>
+    <option value="open">Needs verification</option>
+  </select>
+</div>
+<div class="grid" id="grid"></div>
+</div>
+<footer>Maintained by Ohm ⚡ &middot; last build <span id="built">-</span></footer>
+<script>
+const BADGE = {
+  "confirmed":["b-ok","Confirmed"],
+  "partial":["b-warn","Partial"],
+  "TBD":["b-warn","TBD"],
+  "vendor-only":["b-dim","Vendor part only"],
+  "DO NOT POWER":["b-bad","Do not power"]
+};
+fetch("data/items.json").then(r=>r.json()).then(items=>{
+  const grid=document.getElementById("grid");
+  document.getElementById("s-total").textContent=items.length;
+  document.getElementById("s-ok").textContent=items.filter(i=>i.status==="confirmed").length;
+  document.getElementById("s-open").textContent=items.filter(i=>i.status!=="confirmed").length;
+  document.getElementById("s-qs").textContent=items.reduce((n,i)=>n+(i.qs?i.qs.length:0),0);
+  document.getElementById("built").textContent=new Date().toISOString().slice(0,10);
+
+  function render(list){
+    grid.innerHTML=list.map(i=>{
+      const b=BADGE[i.status]||["b-dim",i.status];
+      const qs=(i.qs||[]).length?`<ul class="qs">${i.qs.map(q=>`<li>${esc(q)}</li>`).join("")}</ul>`:"";
+      return `<article class="card">
+        <h2><span>${esc(i.name)}</span><span class="badge ${b[0]}">${esc(b[1])}</span></h2>
+        <div class="id">${esc(i.id)}</div>
+        <div class="mark">${esc(i.markings)}</div>
+        <div class="row"><b>Package:</b> ${esc(i.pkg)}</div>
+        <div class="row"><b>Notes:</b> ${esc(i.notes)}</div>
+        ${qs}
+      </article>`;
+    }).join("");
+  }
+  function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]))}
+  function apply(){
+    const q=document.getElementById("q").value.toLowerCase();
+    const f=document.getElementById("f").value;
+    render(items.filter(i=>{
+      const hay=(i.name+" "+i.markings+" "+i.notes+" "+i.pkg).toLowerCase();
+      if(q&&!hay.includes(q))return false;
+      if(f==="confirmed"&&i.status!=="confirmed")return false;
+      if(f==="open"&&i.status==="confirmed")return false;
+      return true;
+    }));
+  }
+  document.getElementById("q").addEventListener("input",apply);
+  document.getElementById("f").addEventListener("change",apply);
+  apply();
+});
+</script>
+</body>
+</html>

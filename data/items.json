@@ -1,0 +1,153 @@
+[
+  {
+    "id": "E001",
+    "name": "4-inch HDMI Display Module",
+    "markings": "4inch HDMI Display-C / XPT2046 Touch Controller / 800x480 Pixel",
+    "pkg": "LCD panel + SPI touch controller",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "800x480 HDMI input. XPT2046 resistive touch controller on SPI. 3.3 V logic on touch lines - do not drive from 5 V GPIO without level shifting.",
+    "qs": [
+      "Confirm XPT2046 logic level tolerance on this specific clone board",
+      "What host is intended - Pi, PC, or mini PC?"
+    ]
+  },
+  {
+    "id": "E002",
+    "name": "Arduino Due",
+    "markings": "ATSAM3X8E ARM Cortex-M3, 84 MHz",
+    "pkg": "Dev board, two micro-USB, DC jack",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "3.3 V I/O ONLY. 5 V on a pin kills the SAM3X. Native USB port separate from programming port. Discontinued by Arduino.",
+    "qs": [
+      "Is this the board planned for the DAC bench?"
+    ]
+  },
+  {
+    "id": "E003",
+    "name": "Accelerometer module (X/Y silkscreen)",
+    "markings": "header: GND, VIN, DRY, SCL, SDA",
+    "pkg": "5-pin breakout, blue PCB",
+    "status": "TBD",
+    "conf": "guess",
+    "notes": "I2C plus data-ready interrupt. Candidates: ADXL345 (0x53) or MMA8452Q (0x1D).",
+    "qs": [
+      "READ THE IC MARKING - only reliable ID",
+      "Run an I2C scan, report 0x53 vs 0x1D"
+    ]
+  },
+  {
+    "id": "E004",
+    "name": "TPIC6B596 power shift register (DIP)",
+    "markings": "TPIC6B596 / 82EJV4T (lot) / G4",
+    "pkg": "DIP",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "TI power logic 8-bit shift register. 8 open-drain DMOS outputs, 5 ohm on-resistance, 150 mA cont / 500 mA pulse, 30 mJ avalanche, 50 V stage.",
+    "qs": [
+      "Pin table not yet pulled from datasheet"
+    ]
+  },
+  {
+    "id": "E005",
+    "name": "TPIC6B596 carrier board",
+    "markings": "28-SOIC / 82EJV4T / TP1C6B596 / G4",
+    "pkg": "SOIC-28 on header carrier",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Same die as E004 in SOIC on a breakout. OCR reads the I as a 1.",
+    "qs": [
+      "Are all 28 pins brought out to headers?"
+    ]
+  },
+  {
+    "id": "E006",
+    "name": "Compaq custom IC",
+    "markings": "C7 L2150187 / 128251-001 / (c) COMPAQ 91",
+    "pkg": "Ceramic QFP",
+    "status": "vendor-only",
+    "conf": "medium",
+    "notes": "Compaq service part number, not a manufacturer part. Likely custom gate array or memory controller from a Deskpro/SystemPro-era machine. Public pinout unlikely to exist.",
+    "qs": [
+      "Which machine did it come from?",
+      "Keep as curiosity only?"
+    ]
+  },
+  {
+    "id": "E007",
+    "name": "TI EPROM TMS2516",
+    "markings": "TMS 2516-25JL / LHP0027",
+    "pkg": "24-pin DIP, windowed, CRACKED",
+    "status": "DO NOT POWER",
+    "conf": "high",
+    "notes": "2K x 8 EPROM, 5 V single supply, -25 = 250 ns. Package is split open at the centre with die and bond wires exposed. Not a UV window - a broken lid.",
+    "qs": [
+      "Keep as a display piece?"
+    ]
+  },
+  {
+    "id": "E008",
+    "name": "LM323K regulator",
+    "markings": "LM323K / H8648 (week 48, 1986) / STEEL",
+    "pkg": "TO-3 steel can",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "5 V fixed linear regulator, 3 A. Needs real heatsinking. TO-3 case pin assignment varies - verify before bolting to a chassis.",
+    "qs": [
+      "Confirm TO-3 pin assignment",
+      "What load - 3 A at 12 V in is a lot of heat"
+    ]
+  },
+  {
+    "id": "E009",
+    "name": "2N2222 metal can",
+    "markings": "2N2222",
+    "pkg": "TO-18 can",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "NPN, 40 V Vceo, ~800 mA. TO-18 pinout differs from TO-92: E, B, C with tab near emitter.",
+    "qs": [
+      "Verify with diode check before trusting"
+    ]
+  },
+  {
+    "id": "E010",
+    "name": "HP HCTL-1100",
+    "markings": "HP HCTL-1100 #PLC / 97042 1RS2-0002 / (c) 1935 or 1985?, 1991",
+    "pkg": "QFP",
+    "status": "TBD",
+    "conf": "guess",
+    "notes": "HP motion-control family, late 80s/90s - encoder interface and servo control in hardware. Datasheet NOT pulled; pinout and bus interface unverified.",
+    "qs": [
+      "Pull HCTL-1100 datasheet before wiring",
+      "Confirm copyright year at higher resolution"
+    ]
+  },
+  {
+    "id": "E011",
+    "name": "Yellow ATmega16 controller board",
+    "markings": "MEGA16 / BK3231Q / CG6319P / R011-R013 trim pots / DIP 1-2-3-4",
+    "pkg": "Board",
+    "status": "partial",
+    "conf": "low",
+    "notes": "ATmega16 (40-pin megaAVR, 16K flash, 5 V) plus what looks like a BK3231Q Bluetooth audio SoC. Three trim pots and a 4-way DIP switch suggest a specific appliance.",
+    "qs": [
+      "What is this board out of?",
+      "Confirm BK3231Q"
+    ]
+  },
+  {
+    "id": "E012",
+    "name": "Arduino Duemilanove + TPX TDC shield",
+    "markings": "Duemilanove / TPX TDC / patent 3502889",
+    "pkg": "Board + shield stack",
+    "status": "partial",
+    "conf": "low",
+    "notes": "ATmega328 at 16 MHz, 5 V logic. 47 uF 25 V input electrolytics are the usual first failure. Shield has an antenna-like post, possibly RF.",
+    "qs": [
+      "What project was this?",
+      "Do not power the shield until the antenna post is understood"
+    ]
+  }
+]
