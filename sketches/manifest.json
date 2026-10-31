@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "name": "ds1077_i2c",
+    "board": "Arduino Micro (ATmega32U4) - SCL=D2, SDA=D3",
+    "description": "I2C bring-up for the DS1077 EconOscillator: bus scan, divider write with readback, register dump. Built to be scoped.",
+    "path": "sketches/ds1077_i2c/ds1077_i2c.ino",
+    "updated": "2026-10-30",
+    "status": "untested"
+  }
+]
