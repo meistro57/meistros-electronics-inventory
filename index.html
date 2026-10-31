@@ -37,6 +37,14 @@ button.active{border-color:var(--acc);color:var(--acc)}
 .qs li{margin:.2rem 0}
 footer{border-top:1px solid var(--line);padding:1.2rem;color:var(--dim);font-size:.8rem;text-align:center}
 .hidden{display:none}
+.tabs{display:flex;gap:.4rem;margin:1.3rem 0 .2rem;border-bottom:1px solid var(--line)}
+.tab{background:none;border:none;border-bottom:2px solid transparent;border-radius:0;color:var(--dim);padding:.55rem .9rem;font-weight:600}
+.tab.active{color:var(--acc);border-bottom-color:var(--acc)}
+code{background:#0b0f14;border:1px solid var(--line);border-radius:4px;padding:.1rem .3rem;font-size:.85em}
+.sk{display:flex;flex-direction:column;gap:.5rem}
+.file{font:12px ui-monospace,monospace;color:var(--dim)}
+a.btn{display:inline-block;text-decoration:none;color:var(--acc);border:1px solid var(--acc);border-radius:6px;padding:.35rem .7rem;font-size:.83rem}
+a.btn:hover{background:rgba(88,166,255,.12)}
 </style>
 </head>
 <body>
@@ -51,6 +59,11 @@ footer{border-top:1px solid var(--line);padding:1.2rem;color:var(--dim);font-siz
 </div>
 </div></header>
 <div class="wrap">
+<nav class="tabs">
+  <button class="tab active" data-tab="parts">Parts</button>
+  <button class="tab" data-tab="sketches">Sketches</button>
+</nav>
+<div id="view-parts">
 <div class="controls">
   <input id="q" placeholder="Filter by name, marking, or part number...">
   <select id="f">
@@ -60,6 +73,11 @@ footer{border-top:1px solid var(--line);padding:1.2rem;color:var(--dim);font-siz
   </select>
 </div>
 <div class="grid" id="grid"></div>
+</div>
+</div>
+<div id="view-sketches" class="hidden">
+  <p class="sub" style="margin-top:1.4rem">Arduino sketches kept in <code>sketches/</code>. Pull the repo and you always have my latest fix. Each folder is a sketch folder - open it directly in the Arduino IDE.</p>
+  <div id="sketch-list" class="grid"></div>
 </div>
 <footer>Maintained by Ohm ⚡ &middot; last build <span id="built">-</span></footer>
 <script>
@@ -104,6 +122,25 @@ fetch("data/items.json").then(r=>r.json()).then(items=>{
       return true;
     }));
   }
+  // --- sketches ---
+  document.querySelectorAll(".tab").forEach(t=>t.addEventListener("click",()=>{
+    document.querySelectorAll(".tab").forEach(x=>x.classList.remove("active"));
+    t.classList.add("active");
+    const s=t.dataset.tab==="sketches";
+    document.getElementById("view-parts").classList.toggle("hidden",s);
+    document.getElementById("view-sketches").classList.toggle("hidden",!s);
+  }));
+  fetch("sketches/manifest.json").then(r=>r.ok?r.json():[]).catch(()=>[]).then(list=>{
+    const box=document.getElementById("sketch-list");
+    if(!list.length){box.innerHTML='<article class="card"><h2>No sketches yet</h2><div class="row">Drop a sketch folder into <code>sketches/</code> and add it to the manifest.</div></article>';return}
+    box.innerHTML=list.map(s=>`<article class="card sk">
+      <h2><span>${esc(s.name)}</span></h2>
+      <div class="id">${esc(s.board||"")}</div>
+      <div class="row">${esc(s.description||"")}</div>
+      <div class="file">${esc(s.path)} · updated ${esc(s.updated||"")}</div>
+      <div><a class="btn" href="${esc(s.path)}">Download sketch</a></div>
+    </article>`).join("");
+  });
   document.getElementById("q").addEventListener("input",apply);
   document.getElementById("f").addEventListener("change",apply);
   apply();
