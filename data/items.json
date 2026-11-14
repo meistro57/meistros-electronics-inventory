@@ -406,5 +406,19 @@
       "Is this card from a known device? That may reveal the firmware",
       "Any use beyond teardown curiosity?"
     ]
+  },
+  {
+    "id": "E036",
+    "name": "TI TFP410 DVI/HDMI transmitter (on carrier PCB)",
+    "markings": "TFP410PAP / 0CCG82TC4 (lot)",
+    "pkg": "TQFP-64 (PAP suffix) on a small carrier PCB with mounting holes and pin headers",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "TI TFP410 = PanelBus DVI transmitter. Takes parallel digital video in (24-bit RGB + syncs) and outputs TMDS (DVI/HDMI electrical). 165 MHz pixel clock, up to 1600x1200 / 1080p.\n\nThis part was extremely common on laptops and media boxes - it converts the internal digital video bus into a DVI signal. The carrier PCB it is mounted on is likely a breakout from one of those.\n\nIMPORTANT: TFP410 outputs DVI-P (TMDS), NOT HDMI. It does not carry audio and has no HDCP. For a modern display you need a DVI-to-HDMI adapter cable - passive, electrically compatible.\n\nUseful for: driving a monitor from a custom FPGA/MCU digital video source, retro computer video output, or as a test signal generator if fed a known pattern.",
+    "qs": [
+      "What is the carrier board's pinout - does it break out the parallel input?",
+      "Is there an I2C control header (TFP410 needs I2C to configure if not strapped)?",
+      "1896 module or a bare chip on a generic breakout?"
+    ]
   }
 ]
