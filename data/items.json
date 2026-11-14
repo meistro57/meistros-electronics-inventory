@@ -448,5 +448,19 @@
       "Encoder: do we have a quadrature encoder from the salvage pile to pair with it?",
       "Read HP AN-1000-series app notes before designing"
     ]
+  },
+  {
+    "id": "E039",
+    "name": "Unidentified PLCC chip (markings 10X / 30F28009F / 02A700 / 64)",
+    "markings": "circular logo / 10X / 30F28009F / 02A700 / 64",
+    "pkg": "PLCC (44? pin count not confirmed from photo)",
+    "status": "TBD",
+    "conf": "unknown",
+    "notes": "UNIDENTIFIED. Markings do not match any known catalogue part number. '30F28009F' has the shape of an internal lot/tracking number; '02A700' looks like a batch or date code; '64' may be a pin count but PLCC-44 is visually indicated.\n\nDo NOT assume an identity. Two ways to resolve:\n1. Better photo: oblique lighting, laser etch catches at a grazing angle when invisible head-on.\n2. Electrical: find VCC/GND with a meter, count I/O structure, narrow the family.\n\nPossibly a programmed part, a second-source, or partially worn marking.",
+    "qs": [
+      "Retake photo with oblique light",
+      "Find VCC/GND pins with a DMM, report which pins are power",
+      "Was this from the same salvage as the HCTL-1100?"
+    ]
   }
 ]
