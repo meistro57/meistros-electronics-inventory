@@ -354,5 +354,17 @@
     "qs": [
       "Confirm pinout matches 74LS175 standard"
     ]
+  },
+  {
+    "id": "E032",
+    "name": "TL082 Dual BiFET Op-Amp",
+    "markings": "276-1715 (ProShack/RadioShack blister) / TL082",
+    "pkg": "DIP-8",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Dual JFET-input op-amp. High input impedance (1e12 ohm), 3 MHz GBW, slew 13 V/us - much faster than the 741. Dual supply typically +/-15 V but works at +/-5 V. JFET inputs suit high-impedance sensors and audio; not rail-to-rail out.",
+    "qs": [
+      "Which is better for the MAF filter: TL082 (JFET, fast) or LM324 (single supply, quad)?"
+    ]
   }
 ]
