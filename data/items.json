@@ -488,5 +488,19 @@
       "What connectors are on the board? That usually gives the function away",
       "Is the board functional?"
     ]
+  },
+  {
+    "id": "E042",
+    "name": "13.56 MHz RFID/NFC reader modules (mixed)",
+    "markings": "13.56 MHz crystal / various SMD ICs / etched coil antenna",
+    "pkg": "Small PCB modules with etched meander antenna and solder pads",
+    "status": "partial",
+    "conf": "medium",
+    "notes": "Quantity described as 'a shit ton' - exact count not given.\n\nThese LOOK like 13.56 MHz RFID/NFC modules, but the caption's nRF24 label is a CONTRADICTION: nRF24 (nRF24L01) is 2.4 GHz, and a 13.56 MHz crystal is definitively not 2.4 GHz. These are almost certainly NOT nRF24 modules. Some may be - the pile could be mixed - but the pictured ones are 13.56 MHz.\n\n13.56 MHz is the HF RFID band: ISO14443 (Mifare), ISO15693 (Vicinity), and NFC. The meander antenna is a classic HF reader coil.\n\nFunction depends entirely on the IC marking, which is not readable in these photos. Known families in this form factor: MFRC522 (SPI, very common), PN532 (I2C/SPI/UART, NFC-capable), RC522 clones, and various MiFare readers.\n\nMFRC522 boards are enormously useful - card cloning experiments, door access projects, physical-cyber security work, and they are cheap enough to waste.",
+    "qs": [
+      "Count them and photograph the IC on one clearly - the part number settles what they are",
+      "Separate any genuine nRF24L01 modules from the 13.56 MHz ones - the pile may be mixed",
+      "Need a 13.56 MHz RFID tag or card to test with?"
+    ]
   }
 ]
