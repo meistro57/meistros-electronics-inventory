@@ -366,5 +366,17 @@
     "qs": [
       "Which is better for the MAF filter: TL082 (JFET, fast) or LM324 (single supply, quad)?"
     ]
+  },
+  {
+    "id": "E033",
+    "name": "5W 0.33 ohm wirewound resistor",
+    "markings": "5WR33J",
+    "pkg": "Axial, ceramic/cement body, 5 W",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Decode: 5W = 5 watt, R33 = 0.33 ohm, J = +/-5%. Twenty in stock.\n\nUseful for: current sensing (0.33 ohm x 15 A = 4.95 V - good range for shunt sensing), emitter degeneration, ballast, dummy load, LED current limiting at high current.\n\nCAUTION: at 5 W into 0.33 ohm, I(rms) = sqrt(P/R) = 3.9 A continuous. Above that it cooks. Short pulses allow much more.",
+    "qs": [
+      "What is this batch intended for - shunt sensing, or dummy load?"
+    ]
   }
 ]
