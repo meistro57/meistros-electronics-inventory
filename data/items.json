@@ -392,5 +392,19 @@
       "Confirm supply rails and reference requirement",
       "Are these the ad10 series or the older ADI module line?"
     ]
+  },
+  {
+    "id": "E035",
+    "name": "Beken BK3231Q wireless SoC module",
+    "markings": "BK3231Q / CG6319P / Beken logo / 16.06 MHz xtal",
+    "pkg": "Half-mini PCIe form factor card, gold edge fingers",
+    "status": "partial",
+    "conf": "medium",
+    "notes": "Beken BK3231Q is a low-power 2.4 GHz SoC (commonly Bluetooth or proprietary RF - confirm which). Mounted on a half-mini PCIe-shaped card with gold edge contacts, so it is almost certainly a pre-built module pulled from a laptop or device rather than a bare chip.\n\nUNVERIFIED: whether BK3231Q is Bluetooth, Wi-Fi, or a proprietary 2.4 GHz protocol. Beken part numbers are not self-describing and I have not read the datasheet. Do not assume BT.\n\nThe 16.06 MHz crystal is unusual - standard BT crystals are 16.0 or 26.0 MHz. 16.06 suggests a specific PLL requirement.\n\nHard to repurpose: the module is a closed WiFi/BT radio with proprietary firmware; no public SDK is expected. Treat as a curiosity/salvage, not a buildable part.",
+    "qs": [
+      "Pull BK3231Q datasheet to confirm protocol (BT vs WiFi vs proprietary)",
+      "Is this card from a known device? That may reveal the firmware",
+      "Any use beyond teardown curiosity?"
+    ]
   }
 ]
