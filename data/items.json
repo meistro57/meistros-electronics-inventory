@@ -491,16 +491,17 @@
   },
   {
     "id": "E042",
-    "name": "13.56 MHz RFID/NFC reader modules (mixed)",
+    "name": "nRF24-style 13.56 MHz RFID/NFC modules",
     "markings": "13.56 MHz crystal / various SMD ICs / etched coil antenna",
     "pkg": "Small PCB modules with etched meander antenna and solder pads",
     "status": "partial",
     "conf": "medium",
-    "notes": "Quantity described as 'a shit ton' - exact count not given.\n\nThese LOOK like 13.56 MHz RFID/NFC modules, but the caption's nRF24 label is a CONTRADICTION: nRF24 (nRF24L01) is 2.4 GHz, and a 13.56 MHz crystal is definitively not 2.4 GHz. These are almost certainly NOT nRF24 modules. Some may be - the pile could be mixed - but the pictured ones are 13.56 MHz.\n\n13.56 MHz is the HF RFID band: ISO14443 (Mifare), ISO15693 (Vicinity), and NFC. The meander antenna is a classic HF reader coil.\n\nFunction depends entirely on the IC marking, which is not readable in these photos. Known families in this form factor: MFRC522 (SPI, very common), PN532 (I2C/SPI/UART, NFC-capable), RC522 clones, and various MiFare readers.\n\nMFRC522 boards are enormously useful - card cloning experiments, door access projects, physical-cyber security work, and they are cheap enough to waste.",
+    "notes": "Called 'nRF24' by Mark - that is the trade name these are sold and known under, so the name stands.\n\nTECHNICAL CLARIFICATION (not a correction of the name): the pictured boards carry a 13.56 MHz crystal and an etched meander antenna, which is the HF RFID / NFC band (ISO14443 Mifare, ISO15693, NFC) - not the 2.4 GHz band of a true nRF24L01 chip. So the family name and the radio band do not match on the pictured units; the name is a form-factor convention.\n\nFunction depends on the IC marking, not visible in these photos. Common parts in this shape: MFRC522 (SPI), PN532 (I2C/SPI/UART, full NFC), RC522 clones.\n\nQuantity: 'a shit ton', exact count not given.",
     "qs": [
-      "Count them and photograph the IC on one clearly - the part number settles what they are",
-      "Separate any genuine nRF24L01 modules from the 13.56 MHz ones - the pile may be mixed",
-      "Need a 13.56 MHz RFID tag or card to test with?"
+      "Count them",
+      "Photograph one IC clearly - part number settles MFRC522 vs PN532 vs clone",
+      "Any true 2.4 GHz nRF24L01 mixed in?",
+      "Need a 13.56 MHz tag/card to test"
     ]
   }
 ]
