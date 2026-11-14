@@ -450,32 +450,6 @@
     ]
   },
   {
-    "id": "E039",
-    "name": "Unidentified PLCC chip (markings 10X / 30F28009F / 02A700 / 64)",
-    "markings": "circular logo / 10X / 30F28009F / 02A700 / 64",
-    "pkg": "PLCC (44? pin count not confirmed from photo)",
-    "status": "TBD",
-    "conf": "unknown",
-    "notes": "UNIDENTIFIED. Markings: circular logo, 10X, 30F28009F, 02A700, 64. Does not match a known catalogue part number.\n\nOrigin: random salvage, NOT confirmed as DRL-344 (Mark, 2026-11-14). Do not assume provenance.\n\nTwo ways to resolve: (1) better photo with oblique light so the laser etch catches; (2) find VCC/GND with a meter and count I/O to narrow the family.",
-    "qs": [
-      "Retake photo with oblique lighting",
-      "Find VCC/GND with a DMM and report which pins are power"
-    ]
-  },
-  {
-    "id": "E040",
-    "name": "Unidentified DIP chip (same lot as E039)",
-    "markings": "UNX logo / 320728009 / 2A200 / 34",
-    "pkg": "DIP, 20 pins per side (= DIP-40 likely)",
-    "status": "TBD",
-    "conf": "unknown",
-    "notes": "UNIDENTIFIED. Markings: UNX logo, 320728009, 2A200, 34. DIP, 20 pins per side.\n\nOrigin: random salvage, NOT confirmed as DRL-344 (Mark, 2026-11-14).\n\nNOTE: the markings are string-similar to E039 (30F28009F / 02A700). That similarity is suggestive of the same part family but is NOT proof of a common origin - both are unidentified salvage and OCR of worn etch is unreliable. Treat as two separate unknowns with a possible resemblance.",
-    "qs": [
-      "Confirm package pin count (DIP-40?)",
-      "Retake photo with oblique lighting"
-    ]
-  },
-  {
     "id": "E041",
     "name": "Unidentified PLCC on PCB (markings E0536-53C66 / 44004 / 466)",
     "markings": "E0536-53C66 / 44004 / 466 / small square logo",
@@ -502,6 +476,20 @@
       "Photograph one IC clearly - part number settles MFRC522 vs PN532 vs clone",
       "Any true 2.4 GHz nRF24L01 mixed in?",
       "Need a 13.56 MHz tag/card to test"
+    ]
+  },
+  {
+    "id": "E039",
+    "name": "TI TMS320F28069F Piccolo microcontroller",
+    "markings": "TMX320F28069FNA (TMX = TI pre-production/lot prefix; read from second enlarged photo)",
+    "pkg": "TQFP-80 (NA suffix)",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Texas Instruments TMS320F28069F - C2000 Piccolo series real-time microcontroller.\n\nKey specs (verify against datasheet before design): C28x core at up to 90 MHz, 256 KB flash, 100 KB RAM, on-chip 12-bit ADC, enhanced PWM (ePWM) and capture (eCAP) modules, CAN, SPI, I2C, UART, InstaSPIN-FOC support (the F suffix denotes InstaSPIN).\n\nWHY THIS MATTERS: this is a modern, fast, programmable MCU with dedicated motor-control peripherals and a proper ADC. It is a far better motion-control platform than reverse-engineering 1990s ISA cards - it can close a servo loop, read an encoder, and generate ePWM directly. qty 2.\n\nProgrammable via TI CCS + XDS110 (or compatible) debugger. Needs 3.3 V, a 20 MHz crystal, and the BOOT pins configured.\n\nNote: the earlier reading (10X / 30F28009F / 02A700 / 64) was OCR noise on a worn etch of this same part - 320F28069F was being misread. Both photos are the SAME chip, not two.",
+    "qs": [
+      "Do we have a TI XDS110 or compatible C2000 debugger?",
+      "Any 20 MHz crystal and 3.3 V regulator available?",
+      "Which of the two is intended for the motor bench?"
     ]
   }
 ]
