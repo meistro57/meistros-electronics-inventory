@@ -420,5 +420,19 @@
       "Is there an I2C control header (TFP410 needs I2C to configure if not strapped)?",
       "1896 module or a bare chip on a generic breakout?"
     ]
+  },
+  {
+    "id": "E037",
+    "name": "Lattice ispLSI 2032 CPLD",
+    "markings": "ispLSI 2032 / 80LJ / G026AA13 / R9081",
+    "pkg": "PLCC-44 (gull-wing, socketable)",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Lattice ispLSI 2032: 32 macrocells, 2000 PLD gates, 5 V, in-system programmable. The '80' in 80LJ = 80 MHz. LJ = PLCC package.\n\nThis is the missing piece for the ISA bridge: a CPLD that can replace the whole glue-logic+state-machine design. 5 V tolerant, fast enough for an 8 MHz ISA bus, and reprogrammable so the bus timing can be tuned without rewiring.\n\nCAUTION: ispLSI is the OLD Lattice family (pre-MachXO). Programming needs the right cable (ispDOWNLOAD or a compatible JTAG arrangement) and the old ispLEVER software, which is Windows-only and long unsupported. Verify a programming path exists BEFORE designing around it.\n\nPhysical signs of wear: diagonal scratch, residue along one edge. May have been desoldered - test for bent pins before use.",
+    "qs": [
+      "Is there an ispDOWNLOAD cable or compatible programmer in stock?",
+      "Does an ispLEVER install exist anywhere that still runs?",
+      "Test socket the PLCC-44 to confirm it is alive"
+    ]
   }
 ]
