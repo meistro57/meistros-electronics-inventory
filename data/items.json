@@ -149,5 +149,210 @@
       "What project was this?",
       "Do not power the shield until the antenna post is understood"
     ]
+  },
+  {
+    "id": "E013",
+    "name": "MAX7219 CNG",
+    "markings": "MAX7219 CNG",
+    "pkg": "DIP-24",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "8-digit 7-segment LED display driver, SPI, multiplexed. Cascadable. CNG = 24-pin DIP commercial temp.",
+    "qs": [
+      "How many in stock?"
+    ]
+  },
+  {
+    "id": "E014",
+    "name": "MAX7221 CNG",
+    "markings": "MAX7221 CNG",
+    "pkg": "DIP-24",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Same silicon as MAX7219 but true SPI and lower EMI. Use when sharing a bus with other SPI devices.",
+    "qs": [
+      "How many in stock?"
+    ]
+  },
+  {
+    "id": "E015",
+    "name": "ADC0804 LCJ",
+    "markings": "ADC0804",
+    "pkg": "DIP-20",
+    "status": "confirmed",
+    "conf": "medium",
+    "notes": "8-bit SAR ADC, parallel out, single channel, ~100us conversion (10 kS/s). Needs external clock + 5 V ref. Too slow/coarse for the MAF scope; fine for slow sensors.",
+    "qs": [
+      "Confirm suffix (LCJ vs LCJ-1) and clock source plan"
+    ]
+  },
+  {
+    "id": "E016",
+    "name": "TDA7052",
+    "markings": "TDA7052",
+    "pkg": "DIP-8",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "1.2 W mono audio amp, BTL output - speaker connects across two pins, NEVER ground either terminal. 3-18 V supply. Candidate for YM2612 audio output stage.",
+    "qs": []
+  },
+  {
+    "id": "E017",
+    "name": "74HCT154N",
+    "markings": "74HCT154N / NXP / L8A3M7",
+    "pkg": "DIP-24",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "4-to-16 line decoder/demux. HCT = TTL thresholds so 3.3 V drives cleanly. Two enables. Directly usable for ISA bridge address decode. qty 3 (photo).",
+    "qs": []
+  },
+  {
+    "id": "E018",
+    "name": "DM74150N",
+    "markings": "DM74150N / =B8516A+ / N logo",
+    "pkg": "DIP-24",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "16-input multiplexer (data selector), NOT a microprocessor as some captions claim. 4-bit address, inverted output, active-low strobe. National Semiconductor.",
+    "qs": []
+  },
+  {
+    "id": "E019",
+    "name": "74LS153",
+    "markings": "74LS153",
+    "pkg": "DIP-16",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Dual 4-input multiplexer, shared address lines, separate enables.",
+    "qs": []
+  },
+  {
+    "id": "E020",
+    "name": "7406",
+    "markings": "7406",
+    "pkg": "DIP-14",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Hex inverter buffer/driver, open-collector 30 V outputs. Needs pull-ups. Workhorse for driving relays/lamps.",
+    "qs": []
+  },
+  {
+    "id": "E021",
+    "name": "74LS161",
+    "markings": "74LS161",
+    "pkg": "DIP-16",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "4-bit synchronous binary counter, async clear, loadable, cascadable. Useful for ISA wait-state timing.",
+    "qs": []
+  },
+  {
+    "id": "E022",
+    "name": "Z80A CPU",
+    "markings": "Z80A",
+    "pkg": "DIP-40",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "8-bit CPU, 4 MHz version. Full bus (A0-A15, D0-D7, /MREQ, /IORQ, /RD, /WR). Enables a historically-correct ISA host: Z80 firmware instead of PIC32 pretending. Needs clock, reset, ROM/RAM.",
+    "qs": [
+      "Do we have a 4 MHz clock source / crystal?",
+      "Any Z80 peripheral chips (PIO, SIO, CTC) in stock?"
+    ]
+  },
+  {
+    "id": "E023",
+    "name": "LM324N",
+    "markings": "LM324N",
+    "pkg": "DIP-14",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Quad op-amp, single supply 3-32 V, inputs to ground. Not rail-to-rail out (~1.5 V from each rail). Four poles of active filter in one package - the right part for the MAF filter if we go active.",
+    "qs": []
+  },
+  {
+    "id": "E024",
+    "name": "7812 regulator",
+    "markings": "7812",
+    "pkg": "TO-220",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Fixed +12 V linear, ~1 A with heatsink. Needs ~14.5 V+ in. Dissipates (Vin-12)*I as heat.",
+    "qs": []
+  },
+  {
+    "id": "E025",
+    "name": "74LS139",
+    "markings": "74LS139",
+    "pkg": "DIP-16",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Dual 2-to-4 decoder/demux, active-low outputs. Smaller partner to the 154.",
+    "qs": []
+  },
+  {
+    "id": "E026",
+    "name": "74S157",
+    "markings": "74S157",
+    "pkg": "DIP-16",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Quad 2-input multiplexer, Schottky (fast, more power). Selects between two 4-bit sources.",
+    "qs": []
+  },
+  {
+    "id": "E027",
+    "name": "SN7448N",
+    "markings": "SN7448N",
+    "pkg": "DIP-16",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "BCD to 7-segment decoder/driver, active-high outputs, open-collector with pull-ups.",
+    "qs": []
+  },
+  {
+    "id": "E028",
+    "name": "NTE2021",
+    "markings": "NTE2021",
+    "pkg": "DIP-14 (assumed)",
+    "status": "TBD",
+    "conf": "guess",
+    "notes": "NTE generic substitute, believed 7406-class hex buffer. NTE numbers do NOT map to original part numbers - check the NTE datasheet.",
+    "qs": [
+      "Confirm from NTE datasheet"
+    ]
+  },
+  {
+    "id": "E029",
+    "name": "NTE1904",
+    "markings": "NTE1904",
+    "pkg": "unknown",
+    "status": "TBD",
+    "conf": "guess",
+    "notes": "Unidentified NTE part. NTE numbering is proprietary - must look up.",
+    "qs": [
+      "Look up NTE1904 datasheet"
+    ]
+  },
+  {
+    "id": "E030",
+    "name": "741 op-amp",
+    "markings": "741",
+    "pkg": "DIP-8",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Classic general-purpose op-amp. Slow (1 MHz GBW), not rail-to-rail, not suited to audio or precision work. LM324 is the better choice for most tasks here.",
+    "qs": []
+  },
+  {
+    "id": "E031",
+    "name": "NTE74LS175",
+    "markings": "NTE74LS175",
+    "pkg": "DIP-16",
+    "status": "confirmed",
+    "conf": "medium",
+    "notes": "Quad D flip-flop with clear, LS logic (NTE equivalent of 74LS175). Useful for latching, register storage, debounce.",
+    "qs": [
+      "Confirm pinout matches 74LS175 standard"
+    ]
   }
 ]
