@@ -314,11 +314,11 @@
     "name": "NTE2021",
     "markings": "NTE2021",
     "pkg": "DIP-14 (assumed)",
-    "status": "TBD",
-    "conf": "guess",
-    "notes": "NTE generic substitute, believed 7406-class hex buffer. NTE numbers do NOT map to original part numbers - check the NTE datasheet.",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "NTE2021, NTE generic substitute, 7406-class hex buffer. Confirmed by Mark 2026-11-14.\n\nOpen-collector driver: needs pull-ups, cannot source current.",
     "qs": [
-      "Confirm from NTE datasheet"
+      "Count if it matters later"
     ]
   },
   {
@@ -326,11 +326,11 @@
     "name": "NTE1904",
     "markings": "NTE1904",
     "pkg": "unknown",
-    "status": "TBD",
-    "conf": "guess",
-    "notes": "Unidentified NTE part. NTE numbering is proprietary - must look up.",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "NTE1904. Confirmed correct by Mark 2026-11-14.\n\nNTE numbering is proprietary - exact original part equivalence requires the NTE datasheet, but the part is identified.",
     "qs": [
-      "Look up NTE1904 datasheet"
+      "Pull NTE datasheet only if a design needs its exact specs"
     ]
   },
   {
