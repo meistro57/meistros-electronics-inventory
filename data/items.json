@@ -378,5 +378,19 @@
     "qs": [
       "What is this batch intended for - shunt sensing, or dummy load?"
     ]
+  },
+  {
+    "id": "E034",
+    "name": "Analog Devices DAC-10Z-3 (10-bit DAC)",
+    "markings": "ANALOG DEVICES / DAC-10Z-3 / MADE IN U.S.A. / 28-pin",
+    "pkg": "DIP-28 (or 28-pin hybrid/module)",
+    "status": "partial",
+    "conf": "medium",
+    "notes": "Signed Analog Devices DAC. '10' = 10-bit resolution. 'Z' suffix on ADI parts usually denotes military/industrial temperature grade - verify. Package appears 28-pin with pin numbers screened. qty 2, both salvaged, origin unknown.\n\nNOT VERIFIED: pinout, whether it is voltage or current output, whether it needs an external reference, and the Z suffix meaning. Do not wire this up from assumption - get the datasheet.\n\nPotential use: precision output for a synthesizer control bench, or a calibration source. 10-bit at bench scale is fine for trim and proof-of-concept, too coarse for audio.",
+    "qs": [
+      "Pull the DAC-10Z datasheet from Analog Devices before any wiring",
+      "Confirm supply rails and reference requirement",
+      "Are these the ad10 series or the older ADI module line?"
+    ]
   }
 ]
