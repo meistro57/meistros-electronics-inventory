@@ -434,5 +434,19 @@
       "Does an ispLEVER install exist anywhere that still runs?",
       "Test socket the PLCC-44 to confirm it is alive"
     ]
+  },
+  {
+    "id": "E038",
+    "name": "HP HCTL-1100 motion control IC",
+    "markings": "HP logo / (C) HP-1985, 1991 / HCTL-1100 #PLC / 97042 1RS2-0002",
+    "pkg": "PLCC-44",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Hewlett-Packard HCTL-1100: a complete general-purpose motion controller on a chip. Contains a position feedback processor, a programmable digital filter/compensator, a profile generator (trapezoidal velocity), and PWM or 8-bit DAC command outputs to a motor drive. Interfaces to an encoder via quadrature inputs; talks to a host in parallel or serial.\n\nThis is exactly the kind of part the DRL-344 machine would have used. If the salvaged ISA motion cards turn out to be HP-based, this chip is their sibling.\n\nSignificance for Mark: it is a standalone single-axis motion controller that does not need a PC at all - you can feed it targets and let it close the loop. That is a much easier first motion project than reverse-engineering an ISA card.\n\nIMPORTANT: this is 1990s HP silicon, long discontinued. Datasheet is public (HP application notes AN-1000 series) but must be read before wiring.\n\nNeeds: quadrature encoder, motor drive, 5 V supply, and a host interface chosen (parallel or serial).",
+    "qs": [
+      "Do we have more than one? Multi-axis needs one HCTL-1100 per axis.",
+      "Encoder: do we have a quadrature encoder from the salvage pile to pair with it?",
+      "Read HP AN-1000-series app notes before designing"
+    ]
   }
 ]
