@@ -491,5 +491,32 @@
       "20 MHz crystal and 3.3 V regulator available?",
       "Which of the two chips goes to the motor bench?"
     ]
+  },
+  {
+    "id": "E043",
+    "name": "Lantronix XPort Direct+ (ethernet-serial bridge)",
+    "markings": "PN XPD1001000-01 / Rev B11 / MAC 00-20-4A-A8-54-A0 / Made in Thailand / Date 08W42",
+    "pkg": "Embedded module, RJ45 on one end, USB-style body, 3.3 V header power",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Ethernet-to-serial bridge module. RJ45 on one side, TTL UART on the other: a device's serial port becomes a TCP socket.\n\nNote the 'Direct+' variant is an embedded module (RJ45-ended USB stick form), not a general-purpose USB adapter - its I/O is TTL serial, powered from a header at 3.3 V.\n\nConfig typically via Lantronix DeviceInstaller (Windows), or over serial with escape sequences.\n\nMAC printed on the label: 00-20-4A-A8-54-A0. The documented default telnet password scheme is a suffix of the MAC - verify against the manual for this firmware revision before relying on it.\n\nUse: network-enable a UART device (Propeller, UBW32, motion controller) without adding an ESP32. qty 1.",
+    "qs": [
+      "How many? (one shown)",
+      "Confirm default password scheme from Lantronix manual for Rev B11"
+    ]
+  },
+  {
+    "id": "E044",
+    "name": "Seeed Music Shield v1.2 (VS1053b)",
+    "markings": "Music Shield v1.2 by Seeed Studio 12A11 / www.seeedstudio.com / Made in China",
+    "pkg": "Arduino shield, micro-USB, pin headers",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "Arduino shield carrying a VS1053b audio codec. Decodes MP3/AAC/Ogg/WMA/FLAC/MIDI from SD card, encodes to Ogg. Stereo line out, headphone amp, mic input, SD socket.\n\nUses: off-the-shelf audio in/out block on a Uno. Could feed the YM2612 output in for a rough capture, or play WAV/MP3 with no CPU load. Contains a General MIDI synth - useful for A/B comparison against a real FM chip.\n\nLIMIT: recording goes through the VS1053's own DSP path, so it is not a transparent measurement chain. Convenience device, not a reference instrument.",
+    "qs": [
+      "How many?",
+      "Which Arduino is it intended for?",
+      "SD card available for it?"
+    ]
   }
 ]
