@@ -442,7 +442,7 @@
     "pkg": "PLCC-44",
     "status": "confirmed",
     "conf": "high",
-    "notes": "Hewlett-Packard HCTL-1100: a complete general-purpose motion controller on a chip. Contains a position feedback processor, a programmable digital filter/compensator, a profile generator (trapezoidal velocity), and PWM or 8-bit DAC command outputs to a motor drive. Interfaces to an encoder via quadrature inputs; talks to a host in parallel or serial.\n\nThis is exactly the kind of part the DRL-344 machine would have used. If the salvaged ISA motion cards turn out to be HP-based, this chip is their sibling.\n\nSignificance for Mark: it is a standalone single-axis motion controller that does not need a PC at all - you can feed it targets and let it close the loop. That is a much easier first motion project than reverse-engineering an ISA card.\n\nIMPORTANT: this is 1990s HP silicon, long discontinued. Datasheet is public (HP application notes AN-1000 series) but must be read before wiring.\n\nNeeds: quadrature encoder, motor drive, 5 V supply, and a host interface chosen (parallel or serial).",
+    "notes": "Hewlett-Packard HCTL-1100: a complete general-purpose motion controller on a chip. Contains a position feedback processor, a programmable digital filter/compensator, a profile generator (trapezoidal velocity), and PWM or 8-bit DAC command outputs to a motor drive. Interfaces to an encoder via quadrature inputs; talks to a host in parallel or serial.\n\nSignificance: it is a standalone single-axis motion controller that does not need a PC at all - you can feed it targets and let it close the loop. That is a much easier first motion project than reverse-engineering an ISA card.\n\nIMPORTANT: this is 1990s HP silicon, long discontinued. Datasheet is public (HP application notes AN-1000 series) but must be read before wiring.\n\nNeeds: quadrature encoder, motor drive, 5 V supply, and a host interface chosen (parallel or serial).",
     "qs": [
       "Do we have more than one? Multi-axis needs one HCTL-1100 per axis.",
       "Encoder: do we have a quadrature encoder from the salvage pile to pair with it?",
@@ -473,6 +473,20 @@
     "qs": [
       "Confirm package pin count (DIP-40?)",
       "Retake photo with oblique lighting"
+    ]
+  },
+  {
+    "id": "E041",
+    "name": "Unidentified PLCC on PCB (markings E0536-53C66 / 44004 / 466)",
+    "markings": "E0536-53C66 / 44004 / 466 / small square logo",
+    "pkg": "PLCC, soldered to a green PCB (through-hole or salvaged board)",
+    "status": "TBD",
+    "conf": "unknown",
+    "notes": "UNIDENTIFIED. Still on its board, so the board layout may reveal more than the marking does - surrounding parts and connectors often identify the function.\n\nMarking has the shape of a custom/ASIC or a date-and-lot rather than a standard catalogue number.\n\nBecause it is still mounted, the productive approach is board-level: photograph the whole board, note connectors and adjacent chips, and that usually says what the device does faster than the marking ever will.",
+    "qs": [
+      "Photo of the whole board, both sides",
+      "What connectors are on the board? That usually gives the function away",
+      "Is the board functional?"
     ]
   }
 ]
