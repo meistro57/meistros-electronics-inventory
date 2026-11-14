@@ -456,12 +456,10 @@
     "pkg": "PLCC (44? pin count not confirmed from photo)",
     "status": "TBD",
     "conf": "unknown",
-    "notes": "UNIDENTIFIED. Markings do not match any known catalogue part number. '30F28009F' has the shape of an internal lot/tracking number; '02A700' looks like a batch or date code; '64' may be a pin count but PLCC-44 is visually indicated.\n\nDo NOT assume an identity. Two ways to resolve:\n1. Better photo: oblique lighting, laser etch catches at a grazing angle when invisible head-on.\n2. Electrical: find VCC/GND with a meter, count I/O structure, narrow the family.\n\nPossibly a programmed part, a second-source, or partially worn marking.\n\nLINKED: E040 is the SAME lot in DIP-40. See E040.",
+    "notes": "UNIDENTIFIED. Markings: circular logo, 10X, 30F28009F, 02A700, 64. Does not match a known catalogue part number.\n\nOrigin: random salvage, NOT confirmed as DRL-344 (Mark, 2026-11-14). Do not assume provenance.\n\nTwo ways to resolve: (1) better photo with oblique light so the laser etch catches; (2) find VCC/GND with a meter and count I/O to narrow the family.",
     "qs": [
-      "Retake photo with oblique light",
-      "Find VCC/GND pins with a DMM, report which pins are power",
-      "Was this from the same salvage as the HCTL-1100?",
-      "Compare E039 and E040 side by side - same lot, different package"
+      "Retake photo with oblique lighting",
+      "Find VCC/GND with a DMM and report which pins are power"
     ]
   },
   {
@@ -471,11 +469,10 @@
     "pkg": "DIP, 20 pins per side (= DIP-40 likely)",
     "status": "TBD",
     "conf": "unknown",
-    "notes": "SAME LOT AS E039. E039 read '30F28009F / 02A700 / 64' in PLCC; this reads '320728009 / 2A200 / 34' in DIP. The strings are the same with OCR noise - same die, same lot, different package.\n\nNon-catalogue markings + same lot in two packages + machine-salvage origin strongly suggests a CUSTOM or PROGRAMMED part: mask ROM, programmed PAL/GAL, programmed microcontroller, or vendor ASIC. Machine builders of the DRL-344 era did exactly this.\n\nDO NOT assume it is a known logic part. If it is a programmed device, its function cannot be recovered from the marking - it would need a logic analyser on a live machine or a dump if it is memory.",
+    "notes": "UNIDENTIFIED. Markings: UNX logo, 320728009, 2A200, 34. DIP, 20 pins per side.\n\nOrigin: random salvage, NOT confirmed as DRL-344 (Mark, 2026-11-14).\n\nNOTE: the markings are string-similar to E039 (30F28009F / 02A700). That similarity is suggestive of the same part family but is NOT proof of a common origin - both are unidentified salvage and OCR of worn etch is unreliable. Treat as two separate unknowns with a possible resemblance.",
     "qs": [
-      "Do E039 and E040 both come from the DRL-344 salvage?",
-      "Is there a third one anywhere?",
-      "If it is memory, can it be read? If it is a PAL, it may be protected."
+      "Confirm package pin count (DIP-40?)",
+      "Retake photo with oblique lighting"
     ]
   }
 ]
