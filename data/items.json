@@ -485,11 +485,11 @@
     "pkg": "TQFP-80 (NA suffix)",
     "status": "confirmed",
     "conf": "high",
-    "notes": "Texas Instruments TMS320F28069F - C2000 Piccolo series real-time microcontroller.\n\nKey specs (verify against datasheet before design): C28x core at up to 90 MHz, 256 KB flash, 100 KB RAM, on-chip 12-bit ADC, enhanced PWM (ePWM) and capture (eCAP) modules, CAN, SPI, I2C, UART, InstaSPIN-FOC support (the F suffix denotes InstaSPIN).\n\nWHY THIS MATTERS: this is a modern, fast, programmable MCU with dedicated motor-control peripherals and a proper ADC. It is a far better motion-control platform than reverse-engineering 1990s ISA cards - it can close a servo loop, read an encoder, and generate ePWM directly. qty 2.\n\nProgrammable via TI CCS + XDS110 (or compatible) debugger. Needs 3.3 V, a 20 MHz crystal, and the BOOT pins configured.\n\nNote: the earlier reading (10X / 30F28009F / 02A700 / 64) was OCR noise on a worn etch of this same part - 320F28069F was being misread. Both photos are the SAME chip, not two.",
+    "notes": "Texas Instruments TMS320F28069F - C2000 Piccolo series real-time microcontroller.\n\nKey specs (verify against datasheet before design): C28x core at up to 90 MHz, 256 KB flash, 100 KB RAM, on-chip 12-bit ADC, enhanced PWM (ePWM) and capture (eCAP) modules, CAN, SPI, I2C, UART, InstaSPIN-FOC support (the F suffix denotes InstaSPIN).\n\nWHY THIS MATTERS: this is a modern, fast, programmable MCU with dedicated motor-control peripherals and a proper ADC. It is a far better motion-control platform than reverse-engineering 1990s ISA cards - it can close a servo loop, read an encoder, and generate ePWM directly. qty 2.\n\nProgrammable via TI CCS + XDS110 (or compatible) debugger. Needs 3.3 V, a 20 MHz crystal, and the BOOT pins configured.\n\nNote: the earlier reading (10X / 30F28009F / 02A700 / 64) was OCR noise on a worn etch of this same part - 320F28069F was being misread. Both photos are the SAME chip, not two.\n\nPROVENANCE: free TI sample, never used (Mark, 2026-11-14).\n\nBLOCKER: no XDS110 debugger in stock. Options: (a) buy a clone XDS110 (~cheap, works with CCS), (b) check whether an XDS100v2-class or any C2000-compatible JTAG adapter is in the stash, (c) the chip has a boot-from-serial path - possible but painful.\n\nDo not plan work around this until a programming path is confirmed.",
     "qs": [
-      "Do we have a TI XDS110 or compatible C2000 debugger?",
-      "Any 20 MHz crystal and 3.3 V regulator available?",
-      "Which of the two is intended for the motor bench?"
+      "Programming path: XDS110 clone, or a C2000-compatible adapter in stock?",
+      "20 MHz crystal and 3.3 V regulator available?",
+      "Which of the two chips goes to the motor bench?"
     ]
   }
 ]
