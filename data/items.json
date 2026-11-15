@@ -518,5 +518,19 @@
       "Which Arduino is it intended for?",
       "SD card available for it?"
     ]
+  },
+  {
+    "id": "E045",
+    "name": "NTE7010 single-chip TV processor",
+    "markings": "NTE7010 / IC-SINGLE CHIP TV PROC'R / NTE Electronics Inc.",
+    "pkg": "DIP (pin count not readable from box; typically 40-64 pin for this class)",
+    "status": "confirmed",
+    "conf": "high",
+    "notes": "NTE replacement for a single-chip television signal processor. NTE parts are generic substitutes for discontinued OEM devices; the NTE number maps to a specific original part that must be looked up in the NTE cross-reference before substitution.\n\nTypical function of this class: composite video input, sync separation, chroma/luma processing, deflection timing - the whole small-signal television chain in one chip.\n\nSalvage relevance: contains a sync separator and oscillator stages that are useful separately if the datasheet defines access to them. Also a period-correct part for any CRT/video project.\n\nUNVERIFIED: exact pinout, supply voltage, and the original part number it replaces.",
+    "qs": [
+      "NTE cross-reference: what original part does the 7010 replace?",
+      "Pin count from the chip itself, not the box",
+      "Any 1990s TV service data in the stash to pair with it?"
+    ]
   }
 ]
